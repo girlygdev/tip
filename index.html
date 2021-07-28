@@ -24,9 +24,10 @@
     <div class="input-container">
       <div class="form-group">
         <p class="label">bill</p>
+        <p class="costError error-msg"></p>
         <div class="field">
           <img src="./src/assets/images/icon-dollar.svg" alt="" class="icon">
-          <input type="text" class="form-input" id="cost" maxlength="7" placeholder="0.00"/>
+          <input type="text" class="form-input decimal" id="cost" maxlength="7" placeholder="0.00"/>
         </div>
       </div>
   
@@ -34,20 +35,22 @@
         <p class="label">Select Tip %</p>
   
         <div class="tip-buttons">
-          <button class="btn">5%</button>
-          <button class="btn">10%</button>
-          <button class="btn active">15%</button>
-          <button class="btn">25%</button>
-          <button class="btn">50%</button>
-          <button class="btn custom">Custom</button>
+          <button class="btn percentBtn active" data-val="5">5%</button>
+          <button class="btn percentBtn" data-val="10">10%</button>
+          <button class="btn percentBtn" data-val="15">15%</button>
+          <button class="btn percentBtn" data-val="25">25%</button>
+          <button class="btn percentBtn" data-val="50">50%</button>
+          <input type="text" class="btn custom decimal" maxlength="7" placeholder="Custom" />  
+          <input type="hidden" value="5" id="percentValue" />          
         </div>
       </div>
 
       <div class="form-group">
         <p class="label">Number of People</p>
+        <p class="numberPeopleError error-msg"></p>
         <div class="field">
           <img src="./src/assets/images/icon-person.svg" alt="" class="icon">
-          <input type="text" class="form-input" maxlength="3" id="numberPeople" placeholder="0"/>
+          <input type="text" class="form-input numericOnly" maxlength="3" id="numberPeople" placeholder="0"/>
         </div>
       </div>
     </div>
@@ -67,7 +70,7 @@
           <div class="summary__item">
             <div>
               <p class="label">Total</p>
-              <p class="sublabel">/ person</p>
+              <p class="sublabel">/ amount</p>
             </div>
 
             <div class="amount">$<span class="amount" id="total">0.00</span> </div>
@@ -85,21 +88,8 @@
   </div>
 
 
-  <script>
-    function numericOnly (e) {
-      var key   = e.keyCode ? e.keyCode : e.which;
-    
-      if (!( [8, 9, 13, 27, 46, 110, 190].indexOf(key) !== -1 ||
-          (key == 65 && ( e.ctrlKey || e.metaKey  ) ) || 
-          (key >= 35 && key <= 40) ||
-          (key >= 48 && key <= 57 && !(e.shiftKey || e.altKey)) ||
-          (key >= 96 && key <= 105)
-        )) e.preventDefault();
-    }
 
-    document.getElementById('cost').addEventListener('keydown', numericOnly)
-    document.getElementById('numberPeople').addEventListener('keydown', numericOnly)
-
-  </script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="./src/assets/js/main.js"></script>
 </body>
 </html>

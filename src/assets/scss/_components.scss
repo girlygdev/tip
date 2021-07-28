@@ -43,7 +43,8 @@ main {
     cursor: pointer;
     
     &.active,
-    &.reset {
+    &.reset, 
+    &:hover {
       background: $cyan;
       color: $cyan-dark;
     }
@@ -51,6 +52,12 @@ main {
     &.custom {
       background: $cyan-light-2;
       color: $cyan-grayish-1;
+      text-align: center;
+
+      &.active {
+        background: $cyan;
+        color: $cyan-dark;
+      }
     }
 
     &.reset {
@@ -61,19 +68,49 @@ main {
       font-size: .95rem;
     }
   }
+
+  input.btn:active,
+  input.btn:focus,
+  input.form-input:active,
+  input.form-input:focus {
+    border: 2px solid $cyan !important;
+  } 
+
+  input.error {
+    border: 2px solid $orange !important;
+  }
+
+  .error-msg {
+    color: $orange;
+    font-size: .75rem;
+    font-weight: 600;
+    position: absolute;
+    top: 2px;
+    right: 0;
+  }
+
   
   .form-group {
     margin-bottom: 1.25rem;
+    position: relative;  
 
     .field {
-      display: flex;
-      align-items: center;
-      background: $cyan-light-2;
-      padding: 10px 1rem;
-      border-radius: 4px;
+      position: relative;
+
+      .icon {
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
 
       .form-input {
-        flex: 1;
+        display: flex;
+        align-items: center;
+        background: $cyan-light-2;
+        padding: 10px 1rem;
+        border-radius: 4px;
+        width: 100%;
         text-align: right;
         font-size: 1.25rem;
         color: $cyan-dark;
@@ -92,7 +129,7 @@ main {
     grid-gap: .85rem;    
 
     @media screen and (min-width: 800px) {
-      grid-template-columns: auto auto auto;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
 
@@ -137,7 +174,7 @@ main {
   @media screen and (min-width: 800px) {    
     display: grid;
     width: 100%;
-    grid-template-columns: auto auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-gap: 2rem;
     margin: 3rem 0;
   }
