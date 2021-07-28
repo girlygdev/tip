@@ -1,0 +1,148 @@
+body {
+  background-color: $cyan-light-1;
+}
+
+header {
+  padding: 2rem 0;
+  text-align: center;
+  width: 100%;
+
+  .logo {
+    height: 3rem;
+    width: auto;
+  }
+}
+
+main {
+  padding: 1.5rem;
+  border-radius: 25px;
+  background: $white;
+  display: flex;
+  flex-direction: column;
+  max-width: 1024px;
+  margin: 0 auto;
+
+  .label {
+    color: $cyan-grayish-1;
+    font-weight: 700;
+    text-transform: capitalize;
+    font-size: 0.875rem;
+    margin-bottom: 5px;
+  }
+
+  .btn {
+    color: $white;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    background: $cyan-dark;
+    font-family: $main-font;
+    font-size: 1.25rem;
+    font-weight: 600;
+    padding: .5rem;
+    cursor: pointer;
+    
+    &.active,
+    &.reset {
+      background: $cyan;
+      color: $cyan-dark;
+    }
+    
+    &.custom {
+      background: $cyan-light-2;
+      color: $cyan-grayish-1;
+    }
+
+    &.reset {
+      display: block;
+      width: 100%;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: .95rem;
+    }
+  }
+  
+  .form-group {
+    margin-bottom: 1.25rem;
+
+    .field {
+      display: flex;
+      align-items: center;
+      background: $cyan-light-2;
+      padding: 10px 1rem;
+      border-radius: 4px;
+
+      .form-input {
+        flex: 1;
+        text-align: right;
+        font-size: 1.25rem;
+        color: $cyan-dark;
+        font-weight: 900;
+        outline: none;
+        border: none;
+        background: none;
+        font-family: $main-font;
+      }
+    }
+  }
+
+  .tip-buttons {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: .85rem;    
+
+    @media screen and (min-width: 800px) {
+      grid-template-columns: auto auto auto;
+    }
+  }
+
+  .summary {
+    background: $cyan-dark;
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+    border-radius: 1rem;
+
+    .label {
+      color: $white;
+      margin-bottom: 0px;      
+    }
+
+    .sublabel {
+      font-size: .75rem;
+      color: $cyan-grayish-2;
+      font-weight: 700;
+    }
+
+    .amount {
+      color: $cyan;
+      font-weight: 700;
+      font-size: 1.75rem;
+    }
+
+    &__item {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+
+    @media screen and (min-width: 800px) {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      padding: 3rem 2rem 2rem 2rem;
+    }
+  }
+
+  @media screen and (min-width: 800px) {    
+    display: grid;
+    width: 100%;
+    grid-template-columns: auto auto;
+    grid-gap: 2rem;
+    margin: 3rem 0;
+  }
+
+  @media screen and (min-width: 500px) and (max-width: 799px) {
+    margin: 2rem 0;
+  }
+}

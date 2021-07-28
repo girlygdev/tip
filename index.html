@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Tip calculator app</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <link rel="stylesheet" href="./src/assets/css/main.min.css" >
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <header role="heading">
+    <img src="./src/assets/images/logo.svg" alt="Splitter" class="logo">
+  </header>
+  
+  <main role="main">
+    <div class="input-container">
+      <div class="form-group">
+        <p class="label">bill</p>
+        <div class="field">
+          <img src="./src/assets/images/icon-dollar.svg" alt="" class="icon">
+          <input type="text" class="form-input" id="cost" maxlength="7" placeholder="0.00"/>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <p class="label">Select Tip %</p>
+  
+        <div class="tip-buttons">
+          <button class="btn">5%</button>
+          <button class="btn">10%</button>
+          <button class="btn active">15%</button>
+          <button class="btn">25%</button>
+          <button class="btn">50%</button>
+          <button class="btn custom">Custom</button>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <p class="label">Number of People</p>
+        <div class="field">
+          <img src="./src/assets/images/icon-person.svg" alt="" class="icon">
+          <input type="text" class="form-input" maxlength="3" id="numberPeople" placeholder="0"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="computation-container">      
+      <div class="summary">
+        <div>
+          <div class="summary__item">
+            <div>
+              <p class="label">Tip Amount</p>
+              <p class="sublabel">/ person</p>
+            </div>
+
+            <div class="amount">$<span class="amount" id="tipAmount">0.00</span></div>
+          </div>
+
+          <div class="summary__item">
+            <div>
+              <p class="label">Total</p>
+              <p class="sublabel">/ person</p>
+            </div>
+
+            <div class="amount">$<span class="amount" id="total">0.00</span> </div>
+          </div>
+        </div>
+
+        <button class="reset btn">Reset</button>
+      </div>
+    </div>    
+  </main>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Gil</a>.
+  </div>
+
+
+  <script>
+    function numericOnly (e) {
+      var key   = e.keyCode ? e.keyCode : e.which;
+    
+      if (!( [8, 9, 13, 27, 46, 110, 190].indexOf(key) !== -1 ||
+          (key == 65 && ( e.ctrlKey || e.metaKey  ) ) || 
+          (key >= 35 && key <= 40) ||
+          (key >= 48 && key <= 57 && !(e.shiftKey || e.altKey)) ||
+          (key >= 96 && key <= 105)
+        )) e.preventDefault();
+    }
+
+    document.getElementById('cost').addEventListener('keydown', numericOnly)
+    document.getElementById('numberPeople').addEventListener('keydown', numericOnly)
+
+  </script>
+</body>
+</html>
